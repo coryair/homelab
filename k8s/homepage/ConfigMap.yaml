@@ -10,7 +10,7 @@ data:
     - homepage.home.coryair.com
   services.yaml: |
     - Group:
-        - OPNSense
-            href: http://router.home.coryair.com
+       - OPNSense
+        href: http://router.home.coryair.com
   widgets.yaml: |
     []
