@@ -15,7 +15,7 @@ data:
             description: Homepage is awesome
 
     - Infra:
-        - OPNSense
+        - OPNSense:
             href: https://router.home.coryair.com
             description: OPNSense Router
 
