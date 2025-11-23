@@ -1,0 +1,8 @@
+terraform.tfvars
+*.DS_Store
+**.terraform*
+**.terraform
+**/terraform.tfstate*
+**.terraform/
+**kubeconfig
+**_out

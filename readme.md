@@ -16,10 +16,5 @@ username: `root`
 ### Media Server
 192.168.1.123
 
-### K3
-node0 - ubuntu 22.04
-192.168.1.110
-username: cory
+### Talos OS
 
-### Installation
-curl -sfL https://get.k3s.io | sh -
