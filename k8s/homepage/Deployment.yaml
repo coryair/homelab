@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homepage
+  namespace: homepage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homepage
+  template:
+    metadata:
+      labels:
+        app: homepage
+    spec:
+      initContainers:
+      - name: copy-config
+        image: ghcr.io/gethomepage/homepage:latest
+        command: ['sh', '-c', 'cp /tmp/config/* /app/config/ 2>/dev/null || true']
+        volumeMounts:
+        - name: config-template
+          mountPath: /tmp/config
+        - name: config
+          mountPath: /app/config
+      containers:
+      - name: homepage
+        image: ghcr.io/gethomepage/homepage:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: HOMEPAGE_ALLOWED_HOSTS
+          value: "homepage.home.coryair.com"
+        volumeMounts:
+        - name: config
+          mountPath: /app/config
+      volumes:
+      - name: config-template
+        configMap:
+          name: homepage-config
+      - name: config
+        emptyDir: {}
