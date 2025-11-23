@@ -9,8 +9,19 @@ data:
   allowedHosts: |
     - homepage.home.coryair.com
   services.yaml: |
-    - Group:
-       - OPNSense
-        href: http://router.home.coryair.com
+    - Apps:
+        - My First Service:
+            href: http://localhost/
+            description: Homepage is awesome
+
+    - Infra:
+        - OPNSense
+            href: https://router.home.coryair.com
+            description: OPNSense Router
+
+    - My Third Group:
+        - My Third Service:
+            href: http://localhost/
+            description: Homepage is 😎
   widgets.yaml: |
     []
